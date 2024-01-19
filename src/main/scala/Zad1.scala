@@ -23,12 +23,15 @@ object Zad1 {
   }
 
   def main(args: Array[String]): Unit = {
+    println("---------------Test1")
     var p: Point = new Point(3, 4)
     p.debugName()
 
+    println("---------------Test2")
     var student: Student = new Student(5, "Kamil")
     student.debugName()
 
+    println("---------------Test3")
     var przedmiot: Przedmiot = new Przedmiot(1, "Paradygmaty Programowania")
     przedmiot.debugName()
   }

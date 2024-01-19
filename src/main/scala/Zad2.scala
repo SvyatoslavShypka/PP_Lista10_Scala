@@ -1,8 +1,21 @@
+//import scala.reflect.runtime.universe._
+//import scala.reflect.macros.Universe
+//import scala.reflect.ClassTag
+//import scala.reflect.runtime.{ universe => pl }
+
 object Zad2 {
 
   trait Debug {
-    def debugName(): Unit = {
-      println(s"Klasa: ${getClass.getSimpleName}")
+    def debugVars(): Unit = {
+      val fields = this.getClass.getDeclaredFields
+
+      fields.foreach { field =>
+        field.setAccessible(true)
+        val fieldName = field.getName
+        val fieldType = field.getType.getName
+        val fieldValue = field.get(this)
+        println(s"Pole: $fieldName => $fieldType, $fieldValue")
+      }
     }
   }
 
@@ -17,19 +30,22 @@ object Zad2 {
     var name: String = varname
   }
 
-  class Przedmiot(varnumer: Int, varnazwa: String) extends Debug {
-    var numer: Int = varnumer
-    var nazwa: String = varnazwa
-  }
+  class Przedmiot(val id: Long, val nazwa: String, val ocena: Float) extends Debug
+
+  class Student(val id: Long, val imie: String, val dataUrodzenia: Date, val ocena: Int) extends Debug
+
 
   def main(args: Array[String]): Unit = {
-    var p: Point = new Point(3, 4)
-    p.debugName()
+    println("---------------Test1")
+    var point: Point = new Point(3, 4)
+    point.debugVars()
 
+    println("---------------Test2")
     var student: Student = new Student(5, "Kamil")
-    student.debugName()
+    student.debugVars()
 
-    var przedmiot: Przedmiot = new Przedmiot(1, "Paradygmaty Programowania")
-    przedmiot.debugName()
+    println("---------------Test3")
+    val darek = new Student(272678L, "Darek", new Date(), 5)
+    darek.debugVars()
   }
 }
