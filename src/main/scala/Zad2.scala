@@ -17,14 +17,14 @@ object Zad2 {
   }
 
   class Point(varx: Int, vary: Double) extends Debug {
-    var x: Int = varx
-    var y: Double = vary
-    var a: String = "jakiś tekst"
+    private var x: Int = varx
+    private var y: Double = vary
+    private var a: String = "jakiś tekst"
   }
 
-  class Student(val id: Long, val imie: String, val dataUrodzenia: Date, val ocena: Int) extends Debug
+  class Student(private val id: Long, private val imie: String, private val dataUrodzenia: Date, private val ocena: Int) extends Debug
 
-  class Przedmiot(val id: Long, val nazwa: String, val ocena: Float) extends Debug
+  class Przedmiot(private val id: Long, private val nazwa: String, private val ocena: Float) extends Debug
 
   def main(args: Array[String]): Unit = {
     println("---------------Test1")

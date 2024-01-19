@@ -7,19 +7,19 @@ object Zad1 {
   }
 
   class Point(varx: Int, vary: Int) extends Debug {
-    var x: Int = varx
-    var y: Int = vary
-    var a: String = "jakiś tekst"
+    private var x: Int = varx
+    private var y: Int = vary
+    private var a: String = "jakiś tekst"
   }
 
   class Student(varindex: Int, varname: String) extends Debug {
-    var index: Int = varindex
-    var name: String = varname
+    private var index: Int = varindex
+    private var name: String = varname
   }
 
   class Przedmiot(varnumer: Int, varnazwa: String) extends Debug {
-    var numer: Int = varnumer
-    var nazwa: String = varnazwa
+    private var numer: Int = varnumer
+    private var nazwa: String = varnazwa
   }
 
   def main(args: Array[String]): Unit = {
